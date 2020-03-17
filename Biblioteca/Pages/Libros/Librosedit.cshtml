@@ -1,0 +1,60 @@
+﻿@page "{libroid:int}"
+@model Biblioteca.Pages.Libros.LibroseditModel
+@{
+}
+<h2>editar @Model.libros.Titulo</h2>
+<form method="post">
+    <input type="hidden" nameasp-for="libros.ID_libro" />
+    <div class="form-group">
+        <label asp-for="libros.Titulo"></label>
+        <input asp-for="libros.Titulo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="libros.pais"></label>
+        <select class="form-control" asp-for="libros.pais " asp-items="Model.paises">
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="libros.Publicación"></label>
+        <input asp-for="libros.Publicación" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="libros.Idioma"></label>
+        <select class="form-control" asp-for="libros.Idioma" asp-items="Model.idiomas"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="libros.Notas"></label>
+        <input asp-for="libros.Notas" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="libros.Paginas"></label>
+        <input asp-for="libros.Paginas" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="libros.Publicación"></label>
+        <input asp-for="libros.Publicación" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="libros.Resumen_del_documento"></label>
+        <input asp-for="libros.Resumen_del_documento" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="libros.Serie"></label>
+        <input asp-for="libros.Serie" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-page="./Libros" class="btn btn-dark">Lista de libros</a>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+

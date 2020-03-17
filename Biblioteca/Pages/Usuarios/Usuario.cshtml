@@ -1,0 +1,44 @@
+﻿@page
+@model Biblioteca.Pages.Usuarios.UsuarioModel
+@{
+}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<h1>Busqueda  de usuario por cedula </h1>
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" value="" name="searchterm" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
+<a asp-page="./anadiru" class="btn btn-dark">añadir usuario</a>
+<h1>Usuarios </h1>
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Cedula</th>
+
+    </tr>
+    @foreach (var users in Model.usuarios)
+    {
+        <tr>
+            <td>@users.Nombre</td>
+            <td>@users.Cedula</td>
+            <td>
+                <a class=" btn btn-lg"
+                   asp-page="./detalles">
+                    <i class="fas fa-user-times"></i>
+                </a>
+            </td>
+
+        </tr>
+
+    }
+
+</table>

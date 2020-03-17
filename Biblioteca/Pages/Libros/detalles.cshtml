@@ -1,0 +1,37 @@
+﻿@page
+@model Biblioteca.detallesModel
+@{
+    ViewData["Title"] = "detalles";
+}
+
+<h1>@Model.Libros.Titulo</h1>
+<div>
+    Estado: @Model.Libros.ID_estado
+</div>
+<div>
+    Ubicacion fisica: @Model.Libros.Ubicación_física
+</div>
+<div>
+    Idioma: @Model.Libros.ID_idioma
+</div>
+<div>
+    Pais : @Model.Libros.ID_país
+</div>
+<div>
+    Serie: @Model.Libros.Serie
+</div>
+<div>
+    Nota: @Model.Libros.Notas
+</div>
+<div>
+    @if (@Model.Libros.ID_estado > 1)
+    {
+        <a asp-page="../tomar prestado/Tomar_prestado" class="btn btn-dark">Tomar prestado</a>
+    }
+    @if (@Model.Libros.ID_estado < 1)
+    {
+        <h3>Libro no disponible</h3>
+    }
+
+    <a asp-page="./Libros" class="btn btn-dark">Lista de libros</a>
+</div>

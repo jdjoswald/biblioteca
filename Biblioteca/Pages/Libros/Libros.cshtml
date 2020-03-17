@@ -1,0 +1,48 @@
+﻿@page
+@model Biblioteca.Pages.Libros.LibrosModel
+@{
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<h1> Busqueda por titulo</h1>
+<form  method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" value="" name="searchterm"/>
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+<a asp-page="./anadir" class="btn btn-dark">añadir libro</a>
+<h1> Lista de libros</h1>
+<table class="table">
+    <tr>
+        <th>Titulo</th>
+        <th>Idioma</th>
+        <th>Autor</th>
+    </tr>
+    @foreach (var liibros in Model.libros)
+    {
+
+        <tr>
+            <td>@liibros.Titulo</td>
+            <td>@liibros.ID_libro</td>
+            <td>@liibros.ID_idioma</td>
+            <td>
+                <a class=" btn btn-lg"
+                   asp-page="./detalles"
+                   asp-route-libroid="@liibros.ID_libro">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a class=" btn btn-lg"
+                   asp-page="./Librosedit"
+                   asp-route-libroid="@liibros.ID_libro">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>

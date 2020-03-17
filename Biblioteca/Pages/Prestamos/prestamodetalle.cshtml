@@ -1,0 +1,28 @@
+﻿@page
+@model Biblioteca.Pages.Prestamos.prestamodetalleModel
+@{
+}
+
+<div>
+    Prestamo no.@Model.prestamo.ID_prestamos
+</div>
+<div>
+    libro: @Model.prestamo.ID_libro
+</div>
+<div>
+    usuario: >@Model.prestamo.ID_usuario
+</div>
+<div>
+    fecha de prestamo: @Model.prestamo.Fecha_prestamo
+</div>
+<div>
+    fecha de regreso: @Model.prestamo.Fecha_devolucion
+</div>
+
+
+<a asp-page="./Prestamos" class="btn btn-dark"> Volver a la Lista de libros</a>
+
+<form method="post">
+            <button type="submit" class="btn btn-primary">devuelto</button>
+</form>
+    

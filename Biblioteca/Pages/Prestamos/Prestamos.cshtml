@@ -1,0 +1,36 @@
+﻿@page
+@model Biblioteca.Pages.Prestamos.PrestamosModel
+@{
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<h1>Prestamos</h1>
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" value="" name="searchterm" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
+
+<table class="table">
+    @foreach (var Prestams in Model.prestamos)
+    {
+        <tr>
+            <td>@Prestams.ID_prestamos</td>
+            <td>@Prestams.ID_Estado</td>
+            <td>
+                <a class=" btn btn-lg"
+                   asp-page="./prestamodetalle"
+                   asp-route-prestamoid="@Prestams.ID_prestamos">
+                    <i class="fas fa-edit"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
