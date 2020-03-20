@@ -4,7 +4,7 @@
 }
 <h2>editar @Model.libros.Titulo</h2>
 <form method="post">
-    <input type="hidden" nameasp-for="libros.ID_libro" />
+    <input type="hidden" asp-for="libros.ID_libro" />
     <div class="form-group">
         <label asp-for="libros.Titulo"></label>
         <input asp-for="libros.Titulo" class="form-control" />
@@ -15,10 +15,7 @@
         </select>
 
     </div>
-    <div class="form-group">
-        <label asp-for="libros.Publicación"></label>
-        <input asp-for="libros.Publicación" class="form-control" />
-    </div>
+   
     <div class="form-group">
         <label asp-for="libros.Idioma"></label>
         <select class="form-control" asp-for="libros.Idioma" asp-items="Model.idiomas"></select>
@@ -32,7 +29,7 @@
         <input asp-for="libros.Paginas" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="libros.Publicación"></label>
+        <label >Año de publicación</label>
         <input asp-for="libros.Publicación" class="form-control" />
     </div>
     <div class="form-group">
@@ -44,10 +41,8 @@
         <input asp-for="libros.Serie" class="form-control" />
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
-    <a asp-page="./Libros" class="btn btn-dark">Lista de libros</a>
-
 </form>
-
+<a asp-page="./Libros" class="btn btn-dark">Lista de libros</a>
 
 
 

@@ -15,6 +15,7 @@ namespace Biblioteca.Pages.Libros
         private readonly ILibrosData librosdata;
         private readonly IHtmlHelper htmlHelper;
 
+        [BindProperty]
         public Liibros libros { get; set; }
         public IEnumerable<SelectListItem> paises { get; set; }
         public IEnumerable<SelectListItem> idiomas { get; set; }
@@ -35,6 +36,14 @@ namespace Biblioteca.Pages.Libros
                 return RedirectToPage("./notfound");
                 }
             return Page();
+        }
+        public IActionResult OnPost()
+        {
+            libros = librosdata.Upadate(libros);
+            librosdata.Commit();
+            return Page();
+
+
         }
     }
 }

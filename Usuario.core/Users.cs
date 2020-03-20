@@ -11,8 +11,9 @@ namespace Usuario.core
         public string Nombre { get; set; }
 
         public string Cedula{ get; set; }
+        public   int tardanzas { get; set; }
 
-       
-        
+
+
     }
 }

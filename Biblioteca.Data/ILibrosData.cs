@@ -11,6 +11,9 @@ namespace Biblioteca.Data
     {
         IEnumerable<Liibros> GetLibrosByName(string name);
         Liibros GetByid(int id);
+        Liibros Upadate(Liibros updatedlibro);
+        int Commit();
+       
     }
     public class InMemoryLibrosData : ILibrosData
     {
@@ -24,6 +27,29 @@ namespace Biblioteca.Data
                  new Liibros {Titulo="klk wawa",ID_libro=3,ID_idioma=1, ID_país=1, Serie="volumen 1", pais=pais.republica_dominicana}
              };
 
+        }
+        public Liibros Upadate(Liibros updatedlibro) 
+        {
+            var libro = libros.SingleOrDefault(r => r.ID_libro == updatedlibro.ID_libro);
+            if(libro != null) 
+            {
+                libro.Ubicación_física = updatedlibro.Ubicación_física;
+                libro.Titulo = updatedlibro.Titulo;
+                libro.Paginas = updatedlibro.Paginas;
+                libro.Idioma = updatedlibro.Idioma;
+                libro.Estado = updatedlibro.Estado;
+                libro.pais = updatedlibro.pais;
+                libro.Resumen_del_documento = updatedlibro.Resumen_del_documento;
+                libro.Publicación = updatedlibro.Publicación;
+                libro.Serie = updatedlibro.Serie;
+                libro.Notas = updatedlibro.Notas;
+            }
+
+            return libro;
+        }
+        public int Commit() 
+        {
+            return 0;
         }
         public Liibros GetByid(int id)
         {

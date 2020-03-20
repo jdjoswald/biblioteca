@@ -3,7 +3,7 @@
 @{
 }
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<h1>Busqueda  de usuario por cedula </h1>
+<h1>Busqueda  de usuario  </h1>
 <form method="get">
     <div class="form-group">
         <div class="input-group">
@@ -23,21 +23,28 @@
     <tr>
         <th>Nombre</th>
         <th>Cedula</th>
+        <th>Tardanzas</th>
+
 
     </tr>
     @foreach (var users in Model.usuarios)
     {
-        <tr>
-            <td>@users.Nombre</td>
-            <td>@users.Cedula</td>
-            <td>
-                <a class=" btn btn-lg"
-                   asp-page="./detalles">
-                    <i class="fas fa-user-times"></i>
-                </a>
-            </td>
+<tr>
+    <td>@users.Nombre</td>
+    <td>@users.Cedula</td>
+    <td>@users.tardanzas</td>
+    <td>
+        <a class=" btn btn-lg"
+           asp-page="./detalles" asp-route-usuarioid="@users.ID_usuario">
+            <i class="fas fa-user-times"></i>
+        </a>
+        <a class=" btn btn-lg"
+           asp-page="./Tardanzas"  asp-route-usuarioid="@users.ID_usuario">
+            <i class="fas fa-pencil-alt"></i>
+        </a>
+    </td>
 
-        </tr>
+</tr>
 
     }
 

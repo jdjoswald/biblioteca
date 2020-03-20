@@ -11,6 +11,7 @@ namespace Prestamos.Data
     {
         IEnumerable<Prestams> GetPrestamosByname(string name);
         Prestams GetByid(int id);
+        
     }
     public class InmemoryprestamoData : Iprestamos
     {
