@@ -11,11 +11,14 @@ namespace Usuario.Data
         IEnumerable<Users> GetUserBYName(string name);
         Users GetuserByCedula(string ced);
         Users GetuserByid (int idu);
+        Users update(Users updateuser);
+        int commit();
         
     }
     public class InMemoryUserData : IUserData 
     {
         readonly List<Users> usuario;
+
         public InMemoryUserData() 
         {
             usuario = new List<Users>() 
@@ -31,6 +34,19 @@ namespace Usuario.Data
         public Users GetuserByid(int idu) 
         {
             return usuario.SingleOrDefault(b => b.ID_usuario == idu);
+        }
+        public Users update(Users updateuser) 
+        {
+            var persona = usuario.SingleOrDefault(r => r.ID_usuario == updateuser.ID_usuario);
+            if (persona != null) 
+            {
+                persona.tardanzas = updateuser.tardanzas;
+            }
+            return persona;
+        }
+        public int commit() 
+        { 
+            return 0; 
         }
 
         public IEnumerable<Users> GetUserBYName(string name = null) 

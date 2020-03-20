@@ -12,7 +12,7 @@ namespace Biblioteca
     public class TardanzasModel : PageModel
     {
         private readonly IUserData userData;
-
+        [BindProperty]
         public Users  usuario { get; set; }
         public TardanzasModel(IUserData userData)
         {
@@ -22,6 +22,15 @@ namespace Biblioteca
         public  void  OnGet(int usuarioid )
         {
             usuario = userData.GetuserByid(usuarioid);
+        }
+        public IActionResult OnPost() 
+        {
+            usuario = userData.update(usuario);
+            userData.commit();
+            return Page();
+
+
+
         }
     }
 }

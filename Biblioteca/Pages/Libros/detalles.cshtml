@@ -28,7 +28,7 @@
     {
         <a asp-page="../tomar prestado/Tomar_prestado" class="btn btn-dark">Tomar prestado</a>
     }
-    @if (@Model.Libros.ID_estado < 1)
+    @if (@Model.Libros.ID_estado <= 1)
     {
         <h3>Libro no disponible</h3>
     }

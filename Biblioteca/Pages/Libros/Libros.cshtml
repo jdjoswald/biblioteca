@@ -23,26 +23,28 @@
         <th>Titulo</th>
         <th>Idioma</th>
         <th>Autor</th>
+        <th>Estado</th>
     </tr>
     @foreach (var liibros in Model.libros)
     {
 
-        <tr>
-            <td>@liibros.Titulo</td>
-            <td>@liibros.Idioma</td>
-            <td>@liibros.ID_idioma</td>
-            <td>
-                <a class=" btn btn-lg"
-                   asp-page="./detalles"
-                   asp-route-libroid="@liibros.ID_libro">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a class=" btn btn-lg"
-                   asp-page="./Librosedit"
-                   asp-route-libroid="@liibros.ID_libro">
-                    <i class="fas fa-pencil-alt"></i>
-                </a>
-            </td>
-        </tr>
+<tr>
+    <td>@liibros.Titulo</td>
+    <td>@liibros.Idioma</td>
+    <td>@liibros.ID_idioma</td>
+    <td>@liibros.Estado</td>
+    <td>
+        <a class=" btn btn-lg"
+           asp-page="./detalles"
+           asp-route-libroid="@liibros.ID_libro">
+            <i class="fas fa-edit"></i>
+        </a>
+        <a class=" btn btn-lg"
+           asp-page="./Librosedit"
+           asp-route-libroid="@liibros.ID_libro">
+            <i class="fas fa-pencil-alt"></i>
+        </a>
+    </td>
+</tr>
     }
 </table>

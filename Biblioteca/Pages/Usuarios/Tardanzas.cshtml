@@ -13,12 +13,15 @@
 
 <br />
 <br />
-@if (@Model.usuario.tardanzas > 0)
-{
-    <button class="btn btn-dark">pagar</button>
-    <input type="number" id="quantity" name="quantity" min="1" max="3">
+<form method="post">
+    <input type="hidden" asp-for="usuario.ID_usuario" />
+    @if (@Model.usuario.tardanzas > 0)
+    {
+        <button type="submit" class="btn btn-dark">pagar</button>
+        <input asp-for="usuario.tardanzas"   min="0" max=@Model.usuario.tardanzas/>
 
-}
-<br />
-<br />
-<a asp-page="./Usuario" class="btn btn-dark">Todos los usuarios</a>
+    }
+    <br />
+    <br />
+    <a asp-page="./Usuario" class="btn btn-dark">Todos los usuarios</a>
+</form>

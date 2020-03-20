@@ -12,6 +12,7 @@ namespace Biblioteca.Pages.Prestamos
     public class prestamodetalleModel : PageModel
     {
         private readonly Iprestamos prestamosData;
+        [BindProperty]
         public Prestams prestamo { get; set; }
         public prestamodetalleModel(Iprestamos prestamodata) 
         {
@@ -22,6 +23,14 @@ namespace Biblioteca.Pages.Prestamos
             prestamo = prestamosData.GetByid(prestamoid);
             if (prestamo == null) { return RedirectToPage("../Libros/notfound"); }
             return Page();
+        }
+        public IActionResult OnPost()
+        {
+            prestamo = prestamosData.update(prestamo);
+            prestamosData.commit();
+            return Page();
+
+
         }
     }
 }
