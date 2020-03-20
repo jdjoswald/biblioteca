@@ -7,10 +7,16 @@
     Prestamo no.@Model.prestamo.ID_prestamos
 </div>
 <div>
-    libro: @Model.prestamo.ID_libro
+    libro: @Model.libros.Titulo
 </div>
 <div>
-    usuario: >@Model.prestamo.ID_usuario
+    estado: @Model.libros.ID_estado
+</div>
+<div>
+    estado: @Model.prestamo.ID_Estado
+</div>
+<div>
+    usuario: @Model.prestamo.ID_usuario
 </div>
 <div>
     fecha de prestamo: @Model.prestamo.Fecha_prestamo
@@ -24,13 +30,17 @@
 @if(Model.prestamo.ID_Estado !=2) {
 <form method="post">
     <input type="hidden" asp-for="prestamo.ID_prestamos" />
-    <input  type="hidden"asp-for="prestamo.ID_Estado" value=2 />
+    <input type="hidden" asp-for="libros.ID_libro" />
+    <input  type="hidden" asp-for="libros.ID_estado" value=2 />
+    <input type="hidden" asp-for="prestamo.ID_Estado" value=2 />
 
-    <button  type="submit" class="btn btn-primary" >devuelto</button>
+
+    <button type="submit" class="btn btn-primary" >devuelto</button>
 </form>
 
 <br />
 <br />
 }
 <a asp-page="./Prestamos" class="btn btn-dark"> Volver a la Lista de libros</a>
+
 

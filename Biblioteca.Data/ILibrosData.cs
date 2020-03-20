@@ -12,6 +12,7 @@ namespace Biblioteca.Data
         IEnumerable<Liibros> GetLibrosByName(string name);
         Liibros GetByid(int id);
         Liibros Upadate(Liibros updatedlibro);
+        Liibros Upadateest(Liibros updatedlibro);
         int Commit();
        
     }
@@ -23,8 +24,8 @@ namespace Biblioteca.Data
             libros = new List<Liibros>()
             {
                 new Liibros {Titulo="astro fisica para tarados",ID_libro=1, ID_idioma=1 ,ID_estado=1,  pais=pais.republica_dominicana},
-                new Liibros {Titulo="klk wawa",ID_libro=2,ID_idioma=1,  pais=pais.republica_dominicana},
-                 new Liibros {Titulo="klk wawa",ID_libro=3,ID_idioma=1, ID_país=1, Serie="volumen 1", pais=pais.republica_dominicana}
+                new Liibros {Titulo="klk ",ID_libro=2,ID_idioma=1, ID_estado=1,  pais=pais.republica_dominicana},
+                 new Liibros {Titulo="klk wawa",ID_libro=3,ID_idioma=1, ID_estado=1, ID_país=1, Serie="volumen 1", pais=pais.republica_dominicana}
              };
 
         }
@@ -37,12 +38,24 @@ namespace Biblioteca.Data
                 libro.Titulo = updatedlibro.Titulo;
                 libro.Paginas = updatedlibro.Paginas;
                 libro.Idioma = updatedlibro.Idioma;
-                libro.Estado = updatedlibro.Estado;
+                
                 libro.pais = updatedlibro.pais;
                 libro.Resumen_del_documento = updatedlibro.Resumen_del_documento;
                 libro.Publicación = updatedlibro.Publicación;
                 libro.Serie = updatedlibro.Serie;
                 libro.Notas = updatedlibro.Notas;
+            }
+
+            return libro;
+        }
+        public Liibros Upadateest(Liibros updatedlibro)
+        {
+            var libro = libros.SingleOrDefault(r => r.ID_libro == updatedlibro.ID_libro);
+            if (libro != null)
+            {
+
+                libro.ID_estado = updatedlibro.ID_estado;
+
             }
 
             return libro;
