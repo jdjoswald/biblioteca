@@ -1,4 +1,4 @@
-﻿@page "{libroid:int}"
+﻿@page "{libroid:int?}"
 @model Biblioteca.Pages.Libros.LibroseditModel
 @{
 }
@@ -8,6 +8,8 @@
     <div class="form-group">
         <label asp-for="libros.Titulo"></label>
         <input asp-for="libros.Titulo" class="form-control" />
+        <span class="text-danger" asp-validation-for="libros.Titulo"></span>
+
     </div>
     <div class="form-group">
         <label asp-for="libros.pais"></label>
@@ -42,7 +44,7 @@
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
-<a asp-page="./Libros" class="btn btn-dark">Lista de libros</a>
+<a asp-page="./Libros" class="btn btn-dark">Volver a lista de libros</a>
 
 
 

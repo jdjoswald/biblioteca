@@ -13,8 +13,12 @@ namespace Biblioteca.Data
         Liibros GetByid(int id);
         Liibros Upadate(Liibros updatedlibro);
         Liibros Upadateest(Liibros updatedlibro);
+        Liibros Add(Liibros nuevolibro);
+
         int Commit();
+        
        
+        
     }
     public class InMemoryLibrosData : ILibrosData
     {
@@ -47,6 +51,13 @@ namespace Biblioteca.Data
             }
 
             return libro;
+        }
+        public Liibros Add(Liibros nuevolibro) 
+        {
+            libros.Add(nuevolibro);
+            nuevolibro.ID_libro = libros.Max(r => r.ID_libro)+1;
+            nuevolibro.ID_estado = 2;
+            return nuevolibro;
         }
         public Liibros Upadateest(Liibros updatedlibro)
         {

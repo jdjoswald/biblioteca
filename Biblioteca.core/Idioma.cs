@@ -2,6 +2,7 @@
 {
     public enum Idioma 
     { 
+        Ninguno,
         Espanol,
         Ingles,
         Frances

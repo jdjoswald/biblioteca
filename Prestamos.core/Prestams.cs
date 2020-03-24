@@ -9,7 +9,7 @@ namespace Prestamos.core
         public int ID_prestamos { get; set; }  
         public int ID_libro { get; set; }
         public string Titulo { get; set; }
-        
+        public string usuario { get; set; }
         public int ID_usuario { get; set; }
         public string Nombre { get; set; }
         public int ID_Estado { get; set; }

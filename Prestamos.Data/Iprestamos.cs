@@ -24,7 +24,7 @@ namespace Prestamos.Data
             prestamo = new List<Prestams>()
             {
                 new Prestams{ ID_prestamos=1, ID_libro=1, ID_usuario=1, ID_Estado=1 },
-                new Prestams{ ID_prestamos=2, ID_libro=3, ID_usuario=1, ID_Estado=1 },
+                new Prestams{ ID_prestamos=2, ID_libro=3, ID_usuario=2, ID_Estado=1 },
                 new Prestams{ ID_prestamos=3, ID_libro=2, ID_usuario=1, ID_Estado=1 }
             };
         }

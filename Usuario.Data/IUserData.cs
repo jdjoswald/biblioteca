@@ -12,6 +12,7 @@ namespace Usuario.Data
         Users GetuserByCedula(string ced);
         Users GetuserByid (int idu);
         Users update(Users updateuser);
+        Users Add(Users nuevouser);
         int commit();
         
     }
@@ -24,6 +25,7 @@ namespace Usuario.Data
             usuario = new List<Users>() 
             {
             new Users { ID_usuario = 1, Nombre="joswald", Cedula= "40214978987" },
+            new Users { ID_usuario = 3, Nombre="joswald", Cedula= "40214978787" },
             new Users { ID_usuario = 2, Nombre="Aylin", Cedula = "40214978988", tardanzas = 2}
             };
         }
@@ -55,6 +57,13 @@ namespace Usuario.Data
                    where string.IsNullOrEmpty(name) || b.Nombre.StartsWith(name)
                    orderby b.Nombre
                    select b;
+        }
+        public Users Add(Users nuevouser) 
+        {
+
+            usuario.Add(nuevouser);
+            nuevouser.ID_usuario = usuario.Max(r => r.ID_usuario)+1;
+            return nuevouser;
         }
     }
 }
