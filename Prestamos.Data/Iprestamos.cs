@@ -12,6 +12,8 @@ namespace Prestamos.Data
         IEnumerable<Prestams> GetPrestamosByname(string name);
         Prestams GetByid(int id);
         Prestams update(Prestams updateprestam);
+        
+        Prestams Add(Prestams nuevoprestamo);
         int commit();
 
 
@@ -52,6 +54,19 @@ namespace Prestamos.Data
                   //where string.IsNullOrEmpty(name) || k.ID_prestamos.StartsWith(name)
                    orderby k.ID_prestamos
                    select k;
+        }
+        public Prestams Add(Prestams nuevoprestamo)
+        {
+
+            prestamo.Add(nuevoprestamo);
+            nuevoprestamo.ID_prestamos = prestamo.Max(r => r.ID_prestamos) + 1;
+            nuevoprestamo.ID_Estado = 1;
+            nuevoprestamo.ID_usuario = 1;
+            nuevoprestamo.Fecha_prestamo = DateTime.Now;
+            
+            
+            
+            return nuevoprestamo;
         }
     }
 }

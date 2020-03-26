@@ -29,7 +29,8 @@ namespace Biblioteca.Data
             {
                 new Liibros {Titulo="astro fisica para tarados",ID_libro=1, ID_idioma=1 ,ID_estado=1,  pais=pais.republica_dominicana},
                 new Liibros {Titulo="klk ",ID_libro=2,ID_idioma=1, ID_estado=1,  pais=pais.republica_dominicana},
-                 new Liibros {Titulo="klk wawa",ID_libro=3,ID_idioma=1, ID_estado=1, ID_país=1, Serie="volumen 1", pais=pais.republica_dominicana}
+                 new Liibros {Titulo="klk wawa",ID_libro=3,ID_idioma=1, ID_estado=1, ID_país=1, Serie="volumen 1", pais=pais.republica_dominicana},
+                 new Liibros {Titulo="klk wa2wa",ID_libro=4,ID_idioma=1, ID_estado=2, ID_país=1, Serie="volumen 1", pais=pais.republica_dominicana}
              };
 
         }

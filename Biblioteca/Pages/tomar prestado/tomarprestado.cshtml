@@ -1,0 +1,12 @@
+﻿@page
+@model Biblioteca.Pages.tomar_prestado.tomarprestadoModel
+@{
+}
+<h1>prestamo de @Model.libros.Titulo</h1>
+<form method="post">
+    <input type="hidden" asp-for="prestamo.ID_libro" value="@Model.libros.ID_libro" />
+    <input type="hidden" asp-for="libros.ID_libro"  />
+    <input type="hidden" asp-for="libros.ID_estado" value=1 />
+    <input type="date" asp-for="prestamo.Fecha_devolucion" value="@DateTime.Now">
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
