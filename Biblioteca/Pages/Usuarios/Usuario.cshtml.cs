@@ -18,9 +18,14 @@ namespace Biblioteca.Pages.Usuarios
             this.UsuarioData = UsuarioData;
         }
 
-        public void OnGet(string searchterm)
+        public void OnGet(string searchterm) 
         {
             usuarios = UsuarioData.GetUserBYName(searchterm);
+        }
+        public IActionResult OnPost()
+        {
+            
+            return Page();
         }
     }
 }

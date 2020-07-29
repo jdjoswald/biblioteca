@@ -15,10 +15,11 @@
 <br />
 <form method="post">
     <input type="hidden" asp-for="usuario.ID_usuario" />
+    <input type="hidden" asp-for="usuario.tardanzas" value=0 />
     @if (@Model.usuario.tardanzas > 0)
     {
         <button type="submit" class="btn btn-dark">pagar</button>
-        <input asp-for="usuario.tardanzas"   min="0" max=@Model.usuario.tardanzas/>
+
 
     }
     <br />

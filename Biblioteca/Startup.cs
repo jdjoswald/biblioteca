@@ -6,11 +6,13 @@ using Biblioteca.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Prestamos.Data;
 using Usuario.Data;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace Biblioteca
 {
@@ -26,7 +28,12 @@ namespace Biblioteca
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ILibrosData, InMemoryLibrosData>();
+            services.AddDbContextPool<bibliotecaDBContext>(options=> 
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("BibliotecaDb"));
+            
+            });
+            services.AddScoped<ILibrosData, SqllibrosData>();
             services.AddSingleton<IUserData, InMemoryUserData>();
             services.AddSingleton<Iprestamos, InmemoryprestamoData>();
             services.AddRazorPages();

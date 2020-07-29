@@ -61,7 +61,7 @@ namespace Prestamos.Data
             prestamo.Add(nuevoprestamo);
             nuevoprestamo.ID_prestamos = prestamo.Max(r => r.ID_prestamos) + 1;
             nuevoprestamo.ID_Estado = 1;
-            nuevoprestamo.ID_usuario = 1;
+            //nuevoprestamo.ID_usuario = 1;
             nuevoprestamo.Fecha_prestamo = DateTime.Now;
             
             

@@ -13,6 +13,7 @@ namespace Usuario.Data
         Users GetuserByCedula(string ced);
         Users GetuserByid (int idu);
         Users update(Users updateuser);
+        public Users update2(Users updateuser);
         Users Add(Users nuevouser);
         int commit();
         
@@ -48,6 +49,15 @@ namespace Usuario.Data
             }
             return persona;
         }
+        public Users update2(Users updateuser)
+        {
+            var persona = usuario.SingleOrDefault(r => r.ID_usuario == updateuser.ID_usuario);
+            if (persona != null)
+            {
+                persona.tardanzas++;
+            }
+            return persona;
+        }
         public int commit() 
         { 
             return 0; 
@@ -74,5 +84,11 @@ namespace Usuario.Data
                    orderby b.Nombre
                    select b;
         }
+
+        public Users delete(Users up)
+        {
+            return null;
+        }
+        
     }
 }

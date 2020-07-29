@@ -32,8 +32,14 @@
     <input type="hidden" asp-for="libros.ID_estado" value=2 />
     <input type="hidden" asp-for="prestamo.ID_Estado" value=2 />
     <input type="hidden" asp-for="usuario.ID_usuario" />
-    @if (DateTime.Now > Model.prestamo.Fecha_devolucion)
-    {}
+ @if (DateTime.Compare(DateTime.Now, Model.prestamo.Fecha_devolucion) > 0)
+     { 
+            <div>
+                    Entrega tarde
+        </div>
+         <input type="hidden" asp-for="usuario.tardanzas" value=1/>
+    }
+
 
 
 
