@@ -4,7 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Design;
-
+using Usuario.core;
+using Prestamos.core;
 
 namespace Biblioteca.Data
 {
@@ -16,6 +17,8 @@ namespace Biblioteca.Data
 
         }
         public DbSet<Liibros> Liibros { get; set; }
+        public DbSet<Users> Users { get; set; }
+        public DbSet<Prestams> Prestams { get; set; }
 
     }
 }

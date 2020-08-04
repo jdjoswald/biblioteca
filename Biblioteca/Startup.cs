@@ -34,7 +34,7 @@ namespace Biblioteca
             
             });
             services.AddScoped<ILibrosData, SqllibrosData>();
-            services.AddSingleton<IUserData, InMemoryUserData>();
+            services.AddScoped<IUserData, SqlUserData>();
             services.AddSingleton<Iprestamos, InmemoryprestamoData>();
             services.AddRazorPages();
             services

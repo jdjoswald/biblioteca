@@ -18,6 +18,7 @@ namespace Biblioteca.Data
 
         public Liibros Add(Liibros nuevolibro)
         {
+            nuevolibro.ID_estado = 2;
             db.Add(nuevolibro);
             return nuevolibro;
         }
@@ -62,6 +63,7 @@ namespace Biblioteca.Data
 
         public Liibros Upadateest(Liibros updatedlibro)
         {
+            
             var entity = db.Liibros.Attach(updatedlibro);
             entity.State = EntityState.Modified;
             return updatedlibro;

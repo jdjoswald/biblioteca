@@ -16,6 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Biblioteca.core\Biblioteca.core.csproj" />
+    <ProjectReference Include="..\Prestamos.core\Prestamos.core.csproj" />
+    <ProjectReference Include="..\Usuario.core\Usuario.core.csproj" />
   </ItemGroup>
 
 </Project>

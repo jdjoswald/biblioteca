@@ -7,7 +7,7 @@ namespace Usuario.core
 {
      public class Users
     {
-        //[Required]
+        [Key]
         public int ID_usuario { get; set; }
         [Required, StringLength(80)]
         public string Nombre { get; set; }
