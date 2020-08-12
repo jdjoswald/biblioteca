@@ -44,7 +44,7 @@ namespace Biblioteca.Pages.Prestamos
         }
         public IActionResult OnPost()
         {
-            libros = librosData.Upadateest(libros);
+            libros = librosData.Upadate(libros);
             librosData.Commit();
             usuario = UsuarioData.update(usuario);
             UsuarioData.commit(); 
