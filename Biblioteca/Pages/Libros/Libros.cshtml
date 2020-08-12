@@ -3,7 +3,7 @@
 @{
 }
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<h1> Busqueda por titulo</h1>
+<h1> Búsqueda por titulo</h1>
 <form  method="get">
     <div class="form-group">
         <div class="input-group">
@@ -20,7 +20,7 @@
 <h1> Lista de libros</h1>
 <table class="table">
     <tr>
-        <th>Titulo</th>
+        <th>Título</th>
         <th>Idioma</th>
         <th>Autor</th>
         <th>Estado</th>
@@ -31,8 +31,16 @@
 <tr>
     <td>@liibros.Titulo</td>
     <td>@liibros.Idioma</td>
-    <td>@liibros.ID_idioma</td>
-    <td>@liibros.ID_estado</td>
+    <td>@liibros.Serie</td>
+    @if (@liibros.ID_estado == 1)
+    {
+        <td>no disponible</td>
+    }
+    @if (@liibros.ID_estado == 2)
+    {
+        <td>disponible</td>
+    }
+
     <td>
         <a class=" btn btn-lg"
            asp-page="./detalles"

@@ -20,7 +20,7 @@
 
 <table class="table">
     <tr>
-        <th>prestamos numero</th>
+        <th>préstamos número</th>
         <th>Estado</th>
         <th>usuario</th>
         
@@ -29,10 +29,13 @@
     {
 <tr>
     <td>@Prestams.ID_prestamos</td>
-    <td>@Prestams.ID_Estado</td>
+    @if (@Prestams.ID_Estado == 0)
+    {
+        <td>pendiente a devolver</td>
+    }
     <td>@Prestams.usuario</td>
 
-    
+
     <td>
         <a class=" btn btn-lg"
            asp-page="./prestamodetalle"

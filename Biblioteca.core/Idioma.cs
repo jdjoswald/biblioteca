@@ -3,8 +3,8 @@
     public enum Idioma 
     { 
         Ninguno,
-        Espanol,
-        Ingles,
+        Español,
+        Inglés,
         Frances
     
     }
