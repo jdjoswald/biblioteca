@@ -19,6 +19,7 @@ namespace Biblioteca.Pages.tomar_prestado
         private readonly ILibrosData librosData;
         private readonly IUserData userData;
         public string mensaje = "";
+        int idlibro = 0;
 
 
         [BindProperty]
@@ -36,30 +37,38 @@ namespace Biblioteca.Pages.tomar_prestado
             this.prestamosData = prestamodata;
             this.librosData = librosData;
             this.userData = userData;
+            
         }
 
 
         public IActionResult OnGet(int libroid)
         {
             libros = librosData.GetByid(libroid);
+            
+            idlibro = libroid;
             prestamo = new Prestams();
             prestamo.ID_libro = libroid;
+            prestamosData.Add(prestamo);
             usuarios = userData.GetUserBYName(null);
-            
+            System.Diagnostics.Debug.WriteLine(libros.pais);
+
             return Page();
         }
 
         public IActionResult OnPost()
         {
             usuario = userData.GetuserByCedula(usuario.Cedula);
+            prestamo.ID_usuario = usuario.ID_usuario;
+            //libros = librosData.GetByid(idlibro);
+            prestamo.usuario = usuario.Nombre;
+            System.Diagnostics.Debug.WriteLine(libros.pais);
             if (usuario.tardanzas == 0)
             {
                 
-                prestamo.ID_usuario = usuario.ID_usuario; //usuario.ID_usuario;
-                prestamo.usuario = usuario.Nombre;
-                librosData.Upadateest(libros);
                 prestamosData.Add(prestamo);
-                System.Diagnostics.Debug.WriteLine(prestamo.Fecha_devolucion);
+                librosData.Upadate(libros);
+                librosData.Commit();
+                prestamosData.commit();
                 return RedirectToPage("/Libros/Libros");
             }
             mensaje = "este usuario tiene una tardanza debe saldar su tardanza ";

@@ -33,9 +33,10 @@ namespace Biblioteca
                 options.UseSqlServer(Configuration.GetConnectionString("BibliotecaDb"));
             
             });
+            services.AddScoped<Iprestamos, SqlPrestamosData>();
             services.AddScoped<ILibrosData, SqllibrosData>();
             services.AddScoped<IUserData, SqlUserData>();
-            services.AddSingleton<Iprestamos, InmemoryprestamoData>();
+           
             services.AddRazorPages();
             services
                     .AddControllersWithViews()

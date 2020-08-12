@@ -63,7 +63,9 @@ namespace Biblioteca.Data
 
         public Liibros Upadateest(Liibros updatedlibro)
         {
-            
+            System.Console.WriteLine("u book");
+            System.Console.WriteLine(updatedlibro.ID_libro);
+            System.Console.WriteLine(updatedlibro.ID_estado);
             var entity = db.Liibros.Attach(updatedlibro);
             entity.State = EntityState.Modified;
             return updatedlibro;
