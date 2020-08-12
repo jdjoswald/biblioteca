@@ -53,12 +53,16 @@
     <input type="hidden" asp-for="libros.ID_libro" />
     <input type="hidden" asp-for="libros.Titulo" />
     <input type="hidden" asp-for="libros.Serie" />
+    
     <input type="hidden" asp-for="libros.Idioma" />
 
 
 
 
-
+    @if (Model.usuario.tardanzas == 1) 
+    {
+        <input type="hidden" asp-for="usuario.tardanzas" value=1 />
+    }
     @if (DateTime.Compare(DateTime.Now, Model.prestamo.Fecha_devolucion) > 0)
     {
         <div>
@@ -66,6 +70,7 @@
         </div>
         <input type="hidden" asp-for="usuario.tardanzas" value=1 />
     }
+
 
 
 
